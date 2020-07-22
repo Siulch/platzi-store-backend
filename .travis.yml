@@ -1,0 +1,26 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12.18.3'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: viuture:ScNNleTkjp7tSMLYHmPlSB20
+  email:
+    recipients:
+      - josephsiul15@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: b1cc1f39-0a84-4781-886b-5469ff9e8494
+  app: siulch-store-backend
+  on:
+    repo: siulch/platzi-store-backend
